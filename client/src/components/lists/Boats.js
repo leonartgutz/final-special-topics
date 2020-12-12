@@ -13,7 +13,7 @@ const getStyles = () => ({
   }
 })
 
-const Boat = () => {
+const Boats = () => {
   const styles = getStyles()
 
   const { loading, error, data } = useQuery(GET_BOAT)
@@ -21,13 +21,13 @@ const Boat = () => {
   if (error) return `Errror! ${error.message}`
   return (
     <List grid={{ gutter: 20, column: 1 }} style={styles.list}>
-      {data.boat.map(({ id, make }) => (
+      {data.boats.map(({ id, make, year, model, price }) => (
         <List.Item key={id}>
-          <Boat key={id} id={id} make={make} />
+          <Boat key={id} id={id} make={make} year={year} model={model} price={price}/>
         </List.Item>
       ))}
     </List>
   )
 }
 
-export default Boat
+export default Boats

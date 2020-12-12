@@ -1,10 +1,6 @@
 import React, { useState } from 'react'
 import { Card, List } from 'antd'
 
-import { EditOutlined } from '@ant-design/icons'
-import UpdatePerson from '../forms/UpdatePerson'
-import RemovePerson from '../buttons/RemovePerson'
-
 const getStyles = () => ({
   card: {
     width: '500px'
@@ -27,7 +23,10 @@ const Person = props => {
           actions={[]}
           style={styles.card}
         >
-          {make}
+        <p>{year}</p>
+        <p>{make}</p>
+        <p>{model}</p>
+        <p>{price}</p>
       </Card>
     </List.Item>
   )

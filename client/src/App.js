@@ -9,6 +9,7 @@ import AddPerson from './components/forms/AddPerson'
 import './App.css'
 import People from './components/lists/People'
 import AddBoat from './components/forms/AddBoat'
+import Boats from './components/lists/Boats'
 
 const { Content } = Layout
 
@@ -25,6 +26,7 @@ const App = () => (
         <AddPerson />
         <People />
         <AddBoat />
+        <Boats />
       </Content>
     </div>
   </ApolloProvider>
