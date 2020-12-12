@@ -120,6 +120,7 @@ const typeDefs = gql`
     updatePerson(id: String!, firstName: String!, lastName: String!): Person
     removePerson(id: String!): Person
     addBoat(id: String!, year: String!, make: String!, model: String!, price: String!, personId: String!): Boat
+    removeBoat(id: String!): Boat
   }
 `
 
@@ -170,6 +171,16 @@ const resolvers = {
       boats.push(newBoat)
       return newBoat
     },
+    removeBoat: (root, args) => {
+      const removedBoat = find(boats, { id: args.id })
+      if (!removedBoat) {
+        throw new Error(`Couldn't find boat with id ${args.id}`)
+      }
+      remove(boats, a => {
+        return a.id === removedBoat.id
+      })
+      return removedBoat
+    }
   }
 }
 export { typeDefs, resolvers }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Card, List } from 'antd'
+import RemoveBoat from '../buttons/RemoveBoat'
 
 const getStyles = () => ({
   card: {
@@ -13,14 +14,16 @@ const Person = props => {
   const [model, setModel] = useState(props.model)
   const [year, setYear] = useState(props.year)
   const [price, setPrice] = useState(props.price)
-  const [owner, setOwner] = useState(props.owner)
+  const [personId, setPersonId] = useState(props.personId)
   const styles = getStyles()
 
 
   return (
     <List.Item key={id}>
       <Card
-          actions={[]}
+          actions={[
+            <RemoveBoat id={id} make={make} year={year} model={model} price={price} personId={personId} />
+          ]}
           style={styles.card}
         >
         <p>{year}</p>

@@ -21,9 +21,9 @@ const Boats = () => {
   if (error) return `Errror! ${error.message}`
   return (
     <List grid={{ gutter: 20, column: 1 }} style={styles.list}>
-      {data.boats.map(({ id, make, year, model, price }) => (
+      {data.boats.map(({ id, make, year, model, price, personId }) => (
         <List.Item key={id}>
-          <Boat key={id} id={id} make={make} year={year} model={model} price={price}/>
+          <Boat key={id} id={id} make={make} year={year} model={model} price={price} personId={personId}/>
         </List.Item>
       ))}
     </List>
